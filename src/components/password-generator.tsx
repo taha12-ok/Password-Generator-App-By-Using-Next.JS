@@ -61,15 +61,16 @@ export default function GeneratePassword() {
 
   // Function to copy the password to the clipboard
   const copyToClipboard = (): void => {
-    navigator.clipboard.writeText(password).then(
-      () => {
-        alert("Password copied to clipboard!"); // Alert on successful copy
-      },
-      (err) => {
-        alert("Failed to copy password to clipboard."); // Alert on failed copy
-      }
-    );
-  };
+  navigator.clipboard.writeText(password).then(
+    () => {
+      alert("Password copied to clipboard!");
+    },
+    () => {
+      alert("Failed to copy password to clipboard.");
+    }
+  );
+};
+
 
   // Handler for updating the checkbox states
   const handleCheckboxChange =
