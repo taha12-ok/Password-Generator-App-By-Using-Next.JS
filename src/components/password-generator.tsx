@@ -83,91 +83,97 @@ export default function GeneratePassword() {
 
   // JSX return statement rendering the password generator UI
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-cyan-800 dark:bg-blue-900">
-      {/* Center the password generator card within the screen */}
-      <div className="w-full max-w-md p-6 bg-yellow-500 dark:bg-black-800 shadow-lg rounded-lg">
-        <div className="mx-auto max-w-md space-y-6">
-          {/* Header with title and description */}
-          <div className="space-y-2 text-center">
-            <h1 className="text-3xl font-bold">Password Generator</h1>
-            <p className="text-gray-500 dark:text-gray-400">
-              Create a secure password with just a few clicks.
-            </p>
+   <div
+  className="flex flex-col items-center justify-center min-h-screen bg-cyan-800 dark:bg-blue-900"
+  style={{
+    backgroundImage: 'url("https://images.idgesg.net/images/article/2018/08/5_password-best-practices_unique-passwords_authentication-100768646-large.jpg?auto=webp&quality=85,70")',
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  }}
+>
+  {/* Center the password generator card within the screen */}
+  <div className="w-full max-w-md p-6 bg-yellow-500 dark:bg-black-800 shadow-lg rounded-lg">
+    <div className="mx-auto max-w-md space-y-6">
+      {/* Header with title and description */}
+      <div className="space-y-2 text-center">
+        <h1 className="text-3xl font-bold">Password Generator</h1>
+        <p className="text-gray-500 dark:text-gray-400">
+          Create a secure password with just a few clicks.
+        </p>
+      </div>
+      {/* Main content area for password options and input */}
+      <div className="space-y-4">
+        {/* Input for password length */}
+        <div className="space-y-2">
+          <Label htmlFor="length">Password Length</Label>
+          <Input
+            id="length"
+            type="number"
+            min="8"
+            max="32"
+            value={length}
+            onChange={handleLengthChange}
+            className="w-full"
+          />
+        </div>
+        {/* Checkboxes for character type inclusion */}
+        <div className="space-y-2">
+          <Label>Include:</Label>
+          <div className="flex items-center space-x-2">
+            <Checkbox
+              id="uppercase"
+              checked={includeUppercase}
+              onCheckedChange={handleCheckboxChange(setIncludeUppercase)}
+            />
+            <Label htmlFor="uppercase">Uppercase Letters</Label>
           </div>
-          {/* Main content area for password options and input */}
-          <div className="space-y-4">
-            {/* Input for password length */}
-            <div className="space-y-2">
-              <Label htmlFor="length">Password Length</Label>
-              <Input
-                id="length"
-                type="number"
-                min="8"
-                max="32"
-                value={length}
-                onChange={handleLengthChange}
-                className="w-full"
-              />
-            </div>
-            {/* Checkboxes for character type inclusion */}
-            <div className="space-y-2">
-              <Label>Include:</Label>
-              <div className="flex items-center space-x-2">
-                <Checkbox
-                  id="uppercase"
-                  checked={includeUppercase}
-                  onCheckedChange={handleCheckboxChange(setIncludeUppercase)}
-                />
-                <Label htmlFor="uppercase">Uppercase Letters</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Checkbox
-                  id="lowercase"
-                  checked={includeLowercase}
-                  onCheckedChange={handleCheckboxChange(setIncludeLowercase)}
-                />
-                <Label htmlFor="lowercase">Lowercase Letters</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Checkbox
-                  id="numbers"
-                  checked={includeNumbers}
-                  onCheckedChange={handleCheckboxChange(setIncludeNumbers)}
-                />
-                <Label htmlFor="numbers">Numbers</Label>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Checkbox
-                  id="symbols"
-                  checked={includeSymbols}
-                  onCheckedChange={handleCheckboxChange(setIncludeSymbols)}
-                />
-                <Label htmlFor="symbols">Symbols</Label>
-              </div>
-            </div>
-            {/* Button to generate password */}
-            <Button type="button" className="w-full" onClick={generatePassword}>
-              Generate Password
+          <div className="flex items-center space-x-2">
+            <Checkbox
+              id="lowercase"
+              checked={includeLowercase}
+              onCheckedChange={handleCheckboxChange(setIncludeLowercase)}
+            />
+            <Label htmlFor="lowercase">Lowercase Letters</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox
+              id="numbers"
+              checked={includeNumbers}
+              onCheckedChange={handleCheckboxChange(setIncludeNumbers)}
+            />
+            <Label htmlFor="numbers">Numbers</Label>
+          </div>
+          <div className="flex items-center space-x-2">
+            <Checkbox
+              id="symbols"
+              checked={includeSymbols}
+              onCheckedChange={handleCheckboxChange(setIncludeSymbols)}
+            />
+            <Label htmlFor="symbols">Symbols</Label>
+          </div>
+        </div>
+        {/* Button to generate password */}
+        <Button type="button" className="w-full" onClick={generatePassword}>
+          Generate Password
+        </Button>
+        {/* Display the generated password and button to copy */}
+        <div className="space-y-2">
+          <Label htmlFor="password">Generated Password</Label>
+          <div className="flex items-center space-x-2">
+            <Input
+              id="password"
+              type="text"
+              value={password}
+              readOnly
+              className="flex-1"
+            />
+            <Button type="button" onClick={copyToClipboard}>
+              Copy to Clipboard
             </Button>
-            {/* Display the generated password and button to copy */}
-            <div className="space-y-2">
-              <Label htmlFor="password">Generated Password</Label>
-              <div className="flex items-center space-x-2">
-                <Input
-                  id="password"
-                  type="text"
-                  value={password}
-                  readOnly
-                  className="flex-1"
-                />
-                <Button type="button" onClick={copyToClipboard}>
-                  Copy to Clipboard
-                </Button>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
-  );
-}
+  </div>
+</div>
+
