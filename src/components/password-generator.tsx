@@ -4,14 +4,14 @@
 import { useState, ChangeEvent } from "react";
 
 // Import custom UI components from the UI directory
-import {
-  Card,
-  CardHeader,
-  CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
-} from "@/components/ui/card";
+// import {
+//   Card,
+//   CardHeader,
+//   CardTitle,
+//   CardDescription,
+//   CardContent,
+//   CardFooter,
+// } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -84,7 +84,7 @@ export default function GeneratePassword() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-cyan-800 dark:bg-blue-900">
       {/* Center the password generator card within the screen */}
-      <Card className="w-full max-w-md p-6 bg-yellow-500 dark:bg-black-800 shadow-lg rounded-lg">
+      <div className="w-full max-w-md p-6 bg-yellow-500 dark:bg-black-800 shadow-lg rounded-lg">
         <div className="mx-auto max-w-md space-y-6">
           {/* Header with title and description */}
           <div className="space-y-2 text-center">
@@ -166,7 +166,7 @@ export default function GeneratePassword() {
             </div>
           </div>
         </div>
-      </Card>
+      </div>
     </div>
   );
 }
